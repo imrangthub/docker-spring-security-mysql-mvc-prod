@@ -37,6 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/super-admin/**").hasAnyRole("SUPERADMIN")
         .antMatchers("/anonymous*").anonymous()
         .antMatchers("/login/").permitAll()
+        .antMatchers("/resources/**", "/static/**","/webjars/**").permitAll()
         .anyRequest().authenticated()
         .and()
             .formLogin()
