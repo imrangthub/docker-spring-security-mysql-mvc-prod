@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 @Configuration
 @EnableWebSecurity
@@ -19,17 +18,17 @@ public class WebSecurityInMemoryConfig extends WebSecurityConfigurerAdapter {
 	    auth.inMemoryAuthentication()
 	        .withUser("manager").password(passwordEncoder().encode("manager")).roles("MANAGER")
 	        .and()
-	        .withUser("admin").password(passwordEncoder().encode("admin")).roles("ADMIN")
+	        .withUser("admin").password(passwordEncoder().encode("admin")).roles("MANAGER","ADMIN")
 	        .and()
-	        .withUser("imranmadbar").password(passwordEncoder().encode("imranmadbar")).roles("SUPERADMIN");
+	        .withUser("imranmadbar").password(passwordEncoder().encode("imranmadbar")).roles("SUPERADMIN", "ADMIN", "MANAGER");
 	}
 	
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
         .antMatchers("/").permitAll()
-        .antMatchers("/manager/").hasAnyRole("MANAGER","ADMIN", "SUPERADMIN")
-        .antMatchers("/admin/**").hasAnyRole("ADMIN", "SUPERADMIN")
+        .antMatchers("/admin/**").hasAnyRole("ADMIN")
+        .antMatchers("/manager/").hasAnyRole("MANAGER")
         .antMatchers("/super-admin/**").hasAnyRole("SUPERADMIN")
         .antMatchers("/anonymous*").anonymous()
         .antMatchers("/login/").permitAll()
