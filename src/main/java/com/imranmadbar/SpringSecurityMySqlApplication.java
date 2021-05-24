@@ -13,5 +13,4 @@ public class SpringSecurityMySqlApplication {
 		SpringApplication.run(SpringSecurityMySqlApplication.class, args);
 		System.out.println("Spring Security MySQL MVC Application Run Successfully Done !");
 	}
-
 }
