@@ -22,6 +22,7 @@ public class WebSecurityInMemoryConfig extends WebSecurityConfigurerAdapter {
 	        .withUser("imranmadbar").password(passwordEncoder().encode("imranmadbar")).roles("SUPERADMIN", "ADMIN", "MANAGER");
 	}
 	
+	
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
