@@ -1,8 +1,13 @@
 com\imranmadbar\config\WebSecurityInMemoryConfig.class
-com\imranmadbar\auth\AuthController.class
+com\imranmadbar\config\WebAppConfig.class
 com\imranmadbar\manager\ManagerController.class
 com\imranmadbar\SpringSecurityMySqlApplication.class
-com\imranmadbar\admin\AdminController.class
-com\imranmadbar\config\WebFilterSpring.class
+com\imranmadbar\book\BookRepository.class
+com\imranmadbar\book\BookService.class
 com\imranmadbar\home\HomeController.class
 com\imranmadbar\superAdmin\SuperAdminController.class
+com\imranmadbar\book\BookController.class
+com\imranmadbar\auth\AuthController.class
+com\imranmadbar\book\BookEntity.class
+com\imranmadbar\admin\AdminController.class
+com\imranmadbar\config\WebFilterSpring.class
