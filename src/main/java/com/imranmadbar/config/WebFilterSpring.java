@@ -19,7 +19,6 @@ public class WebFilterSpring extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
 			FilterChain filterChain) throws ServletException, IOException {
 		System.out.println("Request URI is: " + httpServletRequest.getRequestURI());
-
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = auth.getName();
 		String userRoles = auth.getAuthorities().toString();
