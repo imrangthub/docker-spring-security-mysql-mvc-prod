@@ -40,13 +40,26 @@
 	<div class="container">
 		<form action="#" th:action="@{/user-role/save}" th:object="${userRoleObj}"
 			method="post">
+				<label for="description">User:</label> 
 			<div class="form-group">
-				<label for="email">User :</label> <input class="form-control"
-					type="text" th:field="*{userId}" id="name" placeholder="User ID">
+	          <div th:object="${userList}">
+                                                <select class="custom-select" id="userList" name="userId">
+                                                        <option th:each="userObj : ${userList}"
+                                                                th:value="${userObj.id}"
+                                                                th:text="${userObj.username}"></option>
+                                                </select>
+                                        </div>
 			</div>
 			<div class="form-group">
-				<label for="description">Role:</label> <input class="form-control"
-					type="text" th:field="*{roleId}" id="description" placeholder="Role Id">
+				<label for="description">Role:</label> 
+				
+	         <div th:object="${roleList}">
+                                                <select class="custom-select" id="roleList" name="roleId">
+                                                        <option th:each="roleObj : ${roleList}"
+                                                                th:value="${roleObj.id}"
+                                                                th:text="${roleObj.name}"></option>
+                                                </select>
+                                        </div>
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
