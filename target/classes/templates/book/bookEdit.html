@@ -36,15 +36,24 @@
 		</div>
 	</main>
 
-    <form action="#" th:action="@{/book/update}" th:object="${bookObj}" method="post">
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Name">
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-    <label for="email">Type</label>
-    <input type="text" th:field="*{type}" id="type" placeholder="Type">
-    <input type="hidden" th:field="*{id}" id="id">
-    <input type="submit" value="Update Book">   
-</form>
+	<div class="container">
+		<form action="#" th:action="@{/book/update}" th:object="${bookObj}"
+			method="post">
+			<div class="form-group">
+				<label for="email">Book Name:</label> <input class="form-control"
+					type="text" th:field="*{name}" id="name" placeholder="Name">
+			</div>
+			<div class="form-group">
+				<label for="pwd">Type:</label> <input class="form-control"
+					type="text" th:field="*{type}" id="type" placeholder="Type">
+			</div>
+			<input type="hidden" th:field="*{id}" id="id">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+
+	</div>
+
+
 
 </body>
 </html>
