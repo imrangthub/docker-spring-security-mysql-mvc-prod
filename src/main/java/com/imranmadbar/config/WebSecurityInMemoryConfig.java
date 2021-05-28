@@ -32,20 +32,20 @@ public class WebSecurityInMemoryConfig extends WebSecurityConfigurerAdapter {
 	private CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
 	
 
-//	@Override
-//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.authenticationProvider(customAuthenticationProvider);
-//		auth.eraseCredentials(false);
-//	}
-	
-	protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-	    auth.inMemoryAuthentication()
-	        .withUser("manager").password(passwordEncoder().encode("manager")).roles("MANAGER")
-	        .and()
-	        .withUser("admin").password(passwordEncoder().encode("admin")).roles("MANAGER","ADMIN")
-	        .and()
-	        .withUser("imranmadbar").password(passwordEncoder().encode("imranmadbar")).roles("SUPERADMIN", "ADMIN", "MANAGER");
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.authenticationProvider(customAuthenticationProvider);
+		auth.eraseCredentials(false);
 	}
+	
+//	protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+//	    auth.inMemoryAuthentication()
+//	        .withUser("manager").password(passwordEncoder().encode("manager")).roles("MANAGER")
+//	        .and()
+//	        .withUser("admin").password(passwordEncoder().encode("admin")).roles("MANAGER","ADMIN")
+//	        .and()
+//	        .withUser("imranmadbar").password(passwordEncoder().encode("imranmadbar")).roles("SUPERADMIN", "ADMIN", "MANAGER");
+//	}
 	
 	
 	@Override

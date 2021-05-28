@@ -31,17 +31,19 @@
 	<br>
 	<main role="main" class="container">
 		<div class="jumbotron">
-			<h1>Welcome to Super Admin</h1>
-			<p class="lead">This page for who has ROLE_SUPERADMIN Role.</p>
-			<a class="btn btn-lg btn-primary" href="/manager/" role="button">Go
-				to Manager Page &raquo;</a> <a class="btn btn-lg btn-primary"
-				href="/admin/" role="button">Go to Admin Page &raquo;</a> <a
-				class="navbar-brand" href="#" th:href="@{/role}">Role CRUD</a> <a
-				class="navbar-brand" href="#" th:href="@{/user}">User CRUD</a> <a
-				class="navbar-brand" href="#" th:href="@{/user-role}">User Role
-				MANAGE</a>
+			<h4>Welcome to Super Admin</h4>
+			<p class="lead">This page for who has ROLE_SUPERADMIN</p>
+			<a class="btn btn-lg btn-success" href="/user" role="button">Add User</a> 
+			<a class="btn btn-lg btn-success"
+				href="/role" role="success">Add Role</a> 
+		     <a class="btn btn-lg btn-success"
+				href="/user-role" role="button">Manage Role</a> 
+
 
 		</div>
+			<a class="btn btn-lg btn-primary" href="/manager/" role="button">Go
+				to Manager Page &raquo;</a> <a class="btn btn-lg btn-primary"
+				href="/admin/" role="button">Go to Admin Page &raquo;</a> 
 	</main>
 </body>
 </html>
