@@ -14,4 +14,5 @@ public class SpringSecurityMySqlApplication {
 		System.out.println("Spring Security MySQL MVC Application Run Successfully Done !");
 	}
 	
+	
 }
