@@ -30,6 +30,13 @@ public class WebSecurityInMemoryConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
 	
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    	auth.authenticationProvider(authProvider());
+    	auth.authenticationProvider(customAuthenticationProvider);
+    }
+
     @Bean
     public DaoAuthenticationProvider authProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -37,13 +44,7 @@ public class WebSecurityInMemoryConfig extends WebSecurityConfigurerAdapter {
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    	auth.authenticationProvider(customAuthenticationProvider);
-    	auth.authenticationProvider(authProvider());
-    }
-
+    
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
@@ -54,6 +55,8 @@ public class WebSecurityInMemoryConfig extends WebSecurityConfigurerAdapter {
         userDetailsManager.createUser(theUser);
         return userDetailsManager;
     }
+    
+    
 
 	
 	@Override
