@@ -7,9 +7,14 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.User.UserBuilder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
 import com.imranmadbar.config.CustomAccessDeniedHandler;
 import com.imranmadbar.config.CustomAuthenticationFailureHandler;
 import com.imranmadbar.config.CustomAuthenticationProvider;
@@ -31,21 +36,21 @@ public class WebSecurityInMemoryConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
 	
-
+	
+//	@Override
+//	protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+//		auth.inMemoryAuthentication()
+//	        .withUser("imranmadbar").password(passwordEncoder().encode("imranmadbar")).roles("SUPERADMIN", "ADMIN", "MANAGER");
+//	}
+	
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.authenticationProvider(customAuthenticationProvider);
 		auth.eraseCredentials(false);
 	}
 	
-//	protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-//	    auth.inMemoryAuthentication()
-//	        .withUser("manager").password(passwordEncoder().encode("manager")).roles("MANAGER")
-//	        .and()
-//	        .withUser("admin").password(passwordEncoder().encode("admin")).roles("MANAGER","ADMIN")
-//	        .and()
-//	        .withUser("imranmadbar").password(passwordEncoder().encode("imranmadbar")).roles("SUPERADMIN", "ADMIN", "MANAGER");
-//	}
+	
 	
 	
 	@Override
