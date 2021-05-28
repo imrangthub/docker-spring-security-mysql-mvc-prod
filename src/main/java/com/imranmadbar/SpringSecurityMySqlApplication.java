@@ -11,8 +11,7 @@ public class SpringSecurityMySqlApplication {
 
 	public static void main(String[] args) throws RestClientException, IOException {
 		SpringApplication.run(SpringSecurityMySqlApplication.class, args);
-		System.out.println("Spring Security MySQL MVC Application Run Successfully Done !");
+		System.out.println("Spring Security MVC Application Run Successfully Done !");
 	}
-	
 	
 }
