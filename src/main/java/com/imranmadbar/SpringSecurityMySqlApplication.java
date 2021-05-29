@@ -19,8 +19,6 @@ public class SpringSecurityMySqlApplication {
 		System.out.println("Password : imranmadbar");
 		System.out.println("http://localhost:8181/");
 		System.out.println("Using this credential you can log in to the app as a Super admin and able to create users, assign their roles.");
-
-	
 	}
 	
 }

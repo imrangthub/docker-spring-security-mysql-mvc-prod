@@ -35,14 +35,18 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 		String userName = authentication.getName();
 		String password = authentication.getCredentials().toString();
+		
+		if(userName==null || password==null ) {
+			return null;
+		}
 		UserEntity user = userService.findByUserName(userName);
 
 		List<RoleEntity> roles = user.getRoles();
 
-		System.out.println("userName: " + userName);
-		System.out.println("password: " + password);
-		System.out.println("UserEntity" + user);
-		System.out.println("roles" + roles);
+//		System.out.println("userName: " + userName);
+//		System.out.println("password: " + password);
+//		System.out.println("UserEntity" + user);
+//		System.out.println("roles" + roles);
 
 		if (user != null) {
 

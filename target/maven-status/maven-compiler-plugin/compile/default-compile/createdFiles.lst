@@ -1,12 +1,13 @@
-com\imranmadbar\config\WebSecurityInMemoryConfig.class
 com\imranmadbar\user\UserController.class
 com\imranmadbar\config\CustomAccessDeniedHandler.class
 com\imranmadbar\config\CustomAuthenticationProvider.class
+com\imranmadbar\config\WebSecurityH2InMemoryConfig.class
 com\imranmadbar\manager\ManagerController.class
 com\imranmadbar\user\UserService.class
 com\imranmadbar\book\BookRepository.class
 com\imranmadbar\userRole\UserRolesController.class
 com\imranmadbar\userRole\UserRolesRepository.class
+com\imranmadbar\config\MvcConfig.class
 com\imranmadbar\user\UserRepository.class
 com\imranmadbar\userRole\UserRoleEntity.class
 com\imranmadbar\role\RoleEntity.class
