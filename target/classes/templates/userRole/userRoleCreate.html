@@ -47,7 +47,7 @@
 						<div th:object="${userList}">
 
 							<select data-style="btn-success"
-								class="selectpicker  form-control" id="userList" name="userId">
+								class="form-control" id="userList" name="userId">
 								<option th:each="userObj : ${userList}" th:value="${userObj.id}"
 									th:text="${userObj.username}"></option>
 							</select>
@@ -57,7 +57,7 @@
 						<label for="description">Role:</label>
 
 						<div th:object="${roleList}">
-							<select data-style="btn-info" class="selectpicker  form-control"
+							<select data-style="btn-info" class="form-control"
 								id="roleList" name="roleId">
 								<option th:each="roleObj : ${roleList}" th:value="${roleObj.id}"
 									th:text="${roleObj.name}"></option>
@@ -67,11 +67,6 @@
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
 			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-6">.col-md-6</div>
-			<div class="col-md-6">.col-md-6</div>
 		</div>
 
 	</div>

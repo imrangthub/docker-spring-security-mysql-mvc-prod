@@ -46,6 +46,7 @@ public class MvcConfig implements WebMvcConfigurer{
 //	     return templateEngine;
 //	 }
 
+	
 	@Bean
     private ITemplateResolver templateResolver() {
         SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();

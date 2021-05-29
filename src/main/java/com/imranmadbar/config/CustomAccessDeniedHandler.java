@@ -43,7 +43,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 		
 		System.out.println("AccessDenidedHandler");         //do some business logic, then redirect to errorPage url
 		
-		response.sendRedirect(contextPath+"/auth/access-denied");
+		response.sendRedirect(contextPath+"/access-denied");
 
 	}
 

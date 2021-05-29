@@ -21,4 +21,5 @@ public class SpringSecurityMySqlApplication {
 		System.out.println("Using this credential you can log in to the app as a Super admin and able to create users, assign their roles.");
 	}
 	
+	
 }
