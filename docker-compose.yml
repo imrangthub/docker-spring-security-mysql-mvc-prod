@@ -1,30 +1,27 @@
-version: "3.8"
+version: "3.7"
 services:
-  docker-spring-security-mysql-mvc-prod3:
+  docker-spring-security-mysql-mvc-prod:
     image: imranmadbar/docker-spring-security-mysql-mvc-prod:3.0.0.RELEASE
+    container_name: docker-spring-security-mysql-mvc-prod
     ports:
       - "8181:8181"
     links:
-        - mysql-dkr-contr-db 
-    networks:
-      - spring-security-mysql-mvc-net
+        - "mysql-dkr-contr-db:mysql-dkr-contr-db"
     depends_on:
       - mysql-dkr-contr-db
   mysql-dkr-contr-db:
     image: mysql:5.7
+    container_name: mysql-dkr-contr-db
     volumes:
       - db-data:/var/lib/mysql 
     ports:
-      - "3311:3306"
-    networks:
-      - spring-security-mysql-mvc-net
+      - "3306:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=imranmabar_spring_security_db
-networks:
-  spring-security-mysql-mvc-net:
-        driver: bridge
-        
+        MYSQL_USER: root
+        MYSQL_PASSWORD: root
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: imranmabar_spring_security_db
+      
 volumes:
     db-data:
         driver: local
