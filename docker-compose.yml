@@ -1,27 +1,22 @@
-version: '3'
-
+version: "3.9"
 services:
-
-  app-mysql-db:
+  mysql-dkr-contr-db:
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=imranmabar_spring_security_db
-      - MYSQL_USER=imran
-      - MYSQL_PASSWORD=imran
     ports:
-      - 3306:3306
-
+      - "3306:3306"
   docker-spring-security-mysql-mvc-prod:
     image: imranmadbar/docker-spring-security-mysql-mvc-prod:3.0.0.RELEASE
     restart: on-failure
     depends_on:
-      - app-mysql-db
-    ports:
-      - 8181:8181
+      - mysql-dkr-contr-db
     environment:
-      - DATABASE_HOST=app-mysql-db
-      - DATABASE_USER=root
-      - DATABASE_PASSWORD=root
-      - DATABASE_NAME=imranmabar_spring_security_db
-      - DATABASE_PORT=3306
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-dkr-contr-db:3306/imranmabar_spring_security_db
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+    links:
+      - "mysql-dkr-contr-db:mysql-dkr-contr-db"
+    ports:
+      - "8181:8181"
